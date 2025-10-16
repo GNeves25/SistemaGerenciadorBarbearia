@@ -18,6 +18,21 @@ jobs:
         with:
           dotnet-version: '7.0.x'
 
+      - name: Clean
+        run: dotnet clean backend/BarbershopManager.sln
+
+      - name: Clear NuGet cache (optional)
+        run: dotnet nuget locals all --clear
+
+      - name: Restore dependencies
+        run: dotnet restore backend/BarbershopManager.sln --force-evaluate
+
+      - name: Build
+        run: dotnet build backend/BarbershopManager.sln --configuration Debug
+
+      - name: Run tests
+        run: dotnet test backend/BarbershopManager.sln --no-build --verbosity normal
+
       - name: Restore dependencies
         run: dotnet restore backend/BarbershopManager.sln
 
