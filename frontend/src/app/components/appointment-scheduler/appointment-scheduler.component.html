@@ -38,7 +38,7 @@
     <textarea id="notes" formControlName="notes" rows="2" placeholder="Detalhes importantes"></textarea>
   </div>
 
-  <button type="submit" [disabled]="appointmentForm.invalid">Agendar</button>
+  <button type="submit" class="btn btn-primary" [disabled]="appointmentForm.invalid">Agendar</button>
 </form>
 
 <p class="feedback" *ngIf="feedbackMessage">{{ feedbackMessage }}</p>
