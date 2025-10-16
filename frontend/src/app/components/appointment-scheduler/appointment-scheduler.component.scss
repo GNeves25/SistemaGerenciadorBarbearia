@@ -1,0 +1,53 @@
+.scheduler-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+input,
+select,
+textarea {
+  padding: 0.75rem;
+  border: 1px solid #cfd8dc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+button {
+  align-self: flex-start;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #26a69a, #2bbbad);
+  color: #fff;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(38, 166, 154, 0.3);
+}
+
+button:disabled {
+  background: #b0bec5;
+  box-shadow: none;
+}
+
+.feedback {
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.upcoming ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.upcoming li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eceff1;
+}
