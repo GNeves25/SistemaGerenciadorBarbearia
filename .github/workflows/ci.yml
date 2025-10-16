@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: ["main", "master", "develop", "feature/**", "bugfix/**", "release/**"]
+  pull_request:
+
+jobs:
+  build-test-analyze:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '7.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore backend/BarbershopManager.sln
+
+      - name: Build
+        run: dotnet build backend/BarbershopManager.sln --no-restore
+
+      - name: Run tests
+        run: dotnet test backend/BarbershopManager.sln --no-build --verbosity normal
+
+      - name: Restore .NET tools
+        working-directory: backend
+        run: dotnet tool restore
+
+      - name: Static analysis
+        working-directory: backend
+        run: dotnet format BarbershopManager.sln --verify-no-changes
