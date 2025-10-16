@@ -1,0 +1,8 @@
+<h2>Profissionais</h2>
+<ul>
+  <li *ngFor="let barber of (barbers$ | async)">
+    <h3>{{ barber.name }}</h3>
+    <p>{{ barber.specialty || 'Especialidade não informada' }}</p>
+    <span class="badge">{{ barber.email }}</span>
+  </li>
+</ul>

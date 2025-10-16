@@ -1,0 +1,13 @@
+.app-header {
+  background: linear-gradient(90deg, #222, #555);
+  color: #fff;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.app-main {
+  padding: 2rem;
+  background-color: #f7f7f7;
+  min-height: calc(100vh - 120px);
+}

@@ -1,0 +1,54 @@
+<h2>Agendamentos</h2>
+<form [formGroup]="appointmentForm" (ngSubmit)="submit()" class="scheduler-form">
+  <div class="form-row">
+    <label for="barber">Profissional</label>
+    <select id="barber" formControlName="barberId">
+      <option value="" disabled>Selecione um barbeiro</option>
+      <option *ngFor="let barber of (barbers$ | async)" [value]="barber.id">{{ barber.name }}</option>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label for="service">Serviço</label>
+    <select id="service" formControlName="serviceOfferingId">
+      <option value="" disabled>Selecione um serviço</option>
+      <option *ngFor="let service of (services$ | async)" [value]="service.id">
+        {{ service.name }} - {{ service.price | currency: 'BRL' }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label for="customerName">Cliente</label>
+    <input id="customerName" type="text" formControlName="customerName" placeholder="Nome do cliente" />
+  </div>
+
+  <div class="form-row">
+    <label for="scheduledAt">Data e horário</label>
+    <input id="scheduledAt" type="datetime-local" formControlName="scheduledAt" />
+  </div>
+
+  <div class="form-row">
+    <label for="duration">Duração (minutos)</label>
+    <input id="duration" type="number" formControlName="durationMinutes" min="15" step="15" />
+  </div>
+
+  <div class="form-row">
+    <label for="notes">Observações</label>
+    <textarea id="notes" formControlName="notes" rows="2" placeholder="Detalhes importantes"></textarea>
+  </div>
+
+  <button type="submit" [disabled]="appointmentForm.invalid">Agendar</button>
+</form>
+
+<p class="feedback" *ngIf="feedbackMessage">{{ feedbackMessage }}</p>
+
+<section class="upcoming">
+  <h3>Próximos atendimentos</h3>
+  <ul>
+    <li *ngFor="let appointment of (upcomingAppointments$ | async)">
+      <strong>{{ appointment.customerName }}</strong>
+      <span>{{ appointment.scheduledAt | date: 'short' }}</span>
+    </li>
+  </ul>
+</section>
