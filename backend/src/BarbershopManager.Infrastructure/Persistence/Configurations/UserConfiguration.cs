@@ -25,10 +25,5 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .HasMaxLength(100);
 
         builder.HasIndex(user => user.Username).IsUnique();
-
-        builder.HasData(new User(Guid.Parse("11111111-1111-1111-1111-111111111111"),
-            "admin",
-            "0e44ce7308af2b3de5232e4616403ce7d49ba2aec83f79c196409556422a4927",
-            "Administrator"));
     }
 }

@@ -2,6 +2,7 @@ using System.Text;
 using BarbershopManager.Application.Configuration;
 using BarbershopManager.Application.DependencyInjection;
 using BarbershopManager.Infrastructure.DependencyInjection;
+using BarbershopManager.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -68,6 +69,8 @@ builder.Services.AddAuthentication(options =>
     });
 
 var app = builder.Build();
+
+await app.Services.InitializeDatabaseAsync();
 
 if (app.Environment.IsDevelopment())
 {
