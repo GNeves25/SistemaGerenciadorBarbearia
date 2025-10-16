@@ -1,11 +1,13 @@
 using BarbershopManager.Application.DTOs;
 using BarbershopManager.Application.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BarbershopManager.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class BarbersController : ControllerBase
 {
     private readonly BarberService _service;

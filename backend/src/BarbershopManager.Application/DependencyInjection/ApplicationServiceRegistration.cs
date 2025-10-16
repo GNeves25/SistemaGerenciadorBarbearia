@@ -10,6 +10,7 @@ public static class ApplicationServiceRegistration
         services.AddScoped<BarberService>();
         services.AddScoped<ServiceOfferingService>();
         services.AddScoped<AppointmentService>();
+        services.AddScoped<AuthService>();
 
         return services;
     }

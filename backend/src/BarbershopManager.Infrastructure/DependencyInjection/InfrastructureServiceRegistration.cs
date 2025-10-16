@@ -1,4 +1,7 @@
+using BarbershopManager.Application.Configuration;
+using BarbershopManager.Application.Contracts.Authentication;
 using BarbershopManager.Application.Contracts.Persistence;
+using BarbershopManager.Infrastructure.Authentication;
 using BarbershopManager.Infrastructure.Persistence;
 using BarbershopManager.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -15,9 +18,13 @@ public static class InfrastructureServiceRegistration
         services.AddDbContext<BarbershopContext>(options =>
             options.UseSqlServer(connectionString));
 
+        services.Configure<JwtSettings>(configuration.GetSection("JwtSettings"));
+
         services.AddScoped<IBarberRepository, BarberRepository>();
         services.AddScoped<IServiceOfferingRepository, ServiceOfferingRepository>();
         services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
 
         return services;
     }
