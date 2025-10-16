@@ -1,11 +1,114 @@
-<header class="app-header">
-  <div class="app-header__content">
-    <h1>{{ title }}</h1>
-    <button type="button" (click)="logout()" *ngIf="(isAuthenticated$ | async)">
-      Sair
-    </button>
+<ng-container *ngIf="(isAuthenticated$ | async) === true; else publicRoutes">
+  <div class="app-shell">
+    <aside class="app-sidebar">
+      <div class="sidebar__brand" aria-label="{{ title }}">
+        <span class="brand-icon" aria-hidden="true">✂️</span>
+        <div class="brand-text">
+          <span class="brand-name">{{ title }}</span>
+          <small class="brand-tagline">Painel administrativo</small>
+        </div>
+      </div>
+
+      <nav class="sidebar__nav" aria-label="Navegação principal">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <span class="nav-icon" aria-hidden="true">📊</span>
+          <div class="nav-label">
+            <span>Dashboard</span>
+            <small>Visão geral</small>
+          </div>
+        </a>
+        <a
+          href="#"
+          class="disabled"
+          aria-disabled="true"
+          tabindex="-1"
+          (click)="$event.preventDefault()"
+        >
+          <span class="nav-icon" aria-hidden="true">📅</span>
+          <div class="nav-label">
+            <span>Agenda</span>
+            <small>Agendamentos</small>
+          </div>
+        </a>
+        <a
+          href="#"
+          class="disabled"
+          aria-disabled="true"
+          tabindex="-1"
+          (click)="$event.preventDefault()"
+        >
+          <span class="nav-icon" aria-hidden="true">🧾</span>
+          <div class="nav-label">
+            <span>Relatórios</span>
+            <small>Em breve</small>
+          </div>
+        </a>
+      </nav>
+
+      <div class="sidebar__footer">
+        <p>Manter clientes sempre informados.</p>
+      </div>
+    </aside>
+
+    <div class="app-content">
+      <header class="app-topbar">
+        <div class="topbar__left">
+          <h1>Analytics Dashboard</h1>
+          <p>Resumo em tempo real das operações da barbearia</p>
+        </div>
+
+        <div class="topbar__actions">
+          <button
+            type="button"
+            class="btn btn-outline"
+            (click)="toggleTheme()"
+            [attr.aria-label]="theme === 'dark' ? 'Ativar modo claro' : 'Ativar modo escuro'"
+          >
+            <span class="btn-icon" aria-hidden="true">
+              <ng-container *ngIf="theme === 'dark'; else moonIcon">
+                <svg viewBox="0 0 24 24" fill="currentColor" focusable="false" aria-hidden="true">
+                  <path
+                    d="M12 4a1 1 0 0 1 .92.62A6 6 0 1 0 19.38 11a1 1 0 0 1 1.8.88A8 8 0 1 1 11.12 2.82 1 1 0 0 1 12 4Z"
+                  />
+                </svg>
+              </ng-container>
+              <ng-template #moonIcon>
+                <svg viewBox="0 0 24 24" fill="currentColor" focusable="false" aria-hidden="true">
+                  <path
+                    d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"
+                  />
+                </svg>
+              </ng-template>
+            </span>
+            <span>{{ theme === 'dark' ? 'Modo claro' : 'Modo escuro' }}</span>
+          </button>
+
+          <button type="button" class="btn btn-primary">
+            <span class="btn-icon" aria-hidden="true">➕</span>
+            Novo agendamento
+          </button>
+
+          <div class="user-menu">
+            <span class="user-avatar" aria-hidden="true">BM</span>
+            <div class="user-details">
+              <span class="user-name">Administrador</span>
+              <button type="button" class="user-logout" (click)="logout()">Sair</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <div class="app-main__inner">
+          <router-outlet></router-outlet>
+        </div>
+      </main>
+    </div>
   </div>
-</header>
-<main class="app-main">
-  <router-outlet></router-outlet>
-</main>
+</ng-container>
+
+<ng-template #publicRoutes>
+  <div class="public-shell">
+    <router-outlet></router-outlet>
+  </div>
+</ng-template>

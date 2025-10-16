@@ -9,7 +9,7 @@
       <label for="password">Senha</label>
       <input id="password" type="password" formControlName="password" autocomplete="current-password" />
     </div>
-    <button type="submit" [disabled]="form.invalid || isSubmitting">
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid || isSubmitting">
       {{ isSubmitting ? 'Entrando...' : 'Entrar' }}
     </button>
     <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>

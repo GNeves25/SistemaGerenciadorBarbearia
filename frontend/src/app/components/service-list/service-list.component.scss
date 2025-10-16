@@ -1,21 +1,57 @@
+:host {
+  display: block;
+}
+
+h2 {
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+}
+
 ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
 }
 
 li {
-  padding: 1rem 0;
-  border-bottom: 1px solid #eceff1;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--color-divider);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+li:last-child {
+  border-bottom: none;
 }
 
 .service-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
+}
+
+.service-header h3 {
+  margin: 0;
+  font-size: 1rem;
 }
 
 .price {
   font-weight: 600;
-  color: #00897b;
+  color: var(--color-accent);
+}
+
+p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+small {
+  color: var(--color-muted);
+  font-size: 0.8rem;
 }

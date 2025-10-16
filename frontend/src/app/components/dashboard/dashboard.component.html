@@ -1,5 +1,87 @@
-<section class="dashboard-grid">
-  <app-barber-list class="dashboard-card"></app-barber-list>
-  <app-service-list class="dashboard-card"></app-service-list>
-  <app-appointment-scheduler class="dashboard-card dashboard-card--wide"></app-appointment-scheduler>
+<section class="dashboard">
+  <header class="dashboard__hero">
+    <div>
+      <h2>Portfolio Performance</h2>
+      <p>Monitoramento detalhado das métricas financeiras do mês</p>
+    </div>
+    <button type="button" class="btn btn-primary">Ver relatório completo</button>
+  </header>
+
+  <div class="dashboard__metrics">
+    <article class="metric-card">
+      <span class="metric-label">Cash Deposits</span>
+      <strong class="metric-value">R$ 1,7M</strong>
+      <span class="metric-delta positive">+14% este mês</span>
+    </article>
+    <article class="metric-card">
+      <span class="metric-label">Invested Dividends</span>
+      <strong class="metric-value">R$ 980K</strong>
+      <span class="metric-delta negative">-5% em relação ao previsto</span>
+    </article>
+    <article class="metric-card">
+      <span class="metric-label">Capital Gains</span>
+      <strong class="metric-value">R$ 563K</strong>
+      <span class="metric-delta positive">+11% na última semana</span>
+    </article>
+  </div>
+
+  <section class="dashboard__grid">
+    <section class="dashboard-card dashboard-card--wide">
+      <header class="dashboard-card__header">
+        <div>
+          <h3>Status da equipe</h3>
+          <p>Acompanhe desempenho, metas e resultados recentes</p>
+        </div>
+        <button type="button" class="btn btn-outline">Exportar</button>
+      </header>
+      <table class="status-table">
+        <thead>
+          <tr>
+            <th>Profissional</th>
+            <th>Agendamentos</th>
+            <th>Meta</th>
+            <th>Satisfação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>João Martins</td>
+            <td>48</td>
+            <td class="goal reached">Meta atingida</td>
+            <td>98%</td>
+          </tr>
+          <tr>
+            <td>Ana Ribeiro</td>
+            <td>42</td>
+            <td class="goal on-track">Em andamento</td>
+            <td>95%</td>
+          </tr>
+          <tr>
+            <td>Lucas Silva</td>
+            <td>35</td>
+            <td class="goal warning">Revisar metas</td>
+            <td>88%</td>
+          </tr>
+          <tr>
+            <td>Marcos Lima</td>
+            <td>29</td>
+            <td class="goal on-track">Em andamento</td>
+            <td>91%</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="dashboard-card">
+      <app-barber-list></app-barber-list>
+    </section>
+
+    <section class="dashboard-card">
+      <app-service-list></app-service-list>
+    </section>
+
+    <section class="dashboard-card dashboard-card--wide">
+      <app-appointment-scheduler></app-appointment-scheduler>
+    </section>
+  </section>
 </section>
