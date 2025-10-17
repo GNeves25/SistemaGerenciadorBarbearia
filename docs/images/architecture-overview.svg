@@ -1,0 +1,55 @@
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { font: bold 28px 'Segoe UI', Arial, sans-serif; fill: #212529; }
+    .box { fill: #3498db; stroke: #34495e; stroke-width: 4; rx: 20; ry: 20; }
+    .box-green { fill: #2ecc71; stroke: #34495e; stroke-width: 4; rx: 20; ry: 20; }
+    .box-purple { fill: #9b59b6; stroke: #34495e; stroke-width: 4; rx: 20; ry: 20; }
+    .label { font: bold 20px 'Segoe UI', Arial, sans-serif; fill: #ffffff; }
+    .text-small { font: 16px 'Segoe UI', Arial, sans-serif; fill: #ffffff; }
+    .line { stroke: #34495e; stroke-width: 5; marker-end: url(#arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,10 L10,5 z" fill="#34495e" />
+    </marker>
+  </defs>
+  <rect width="100%" height="100%" fill="#f8f9fa" />
+  <text class="title" x="300" y="60">Barbershop Manager - Arquitetura</text>
+
+  <rect class="box" x="60" y="220" width="240" height="180" />
+  <text class="label" x="95" y="280">Frontend</text>
+  <text class="text-small" x="90" y="320">Angular 17 · RxJS ·</text>
+  <text class="text-small" x="120" y="350">Angular Material</text>
+
+  <rect class="box-purple" x="350" y="150" width="260" height="300" />
+  <text class="label" x="395" y="220">API Layer</text>
+  <text class="text-small" x="375" y="260">ASP.NET Core 7 REST</text>
+  <text class="text-small" x="370" y="290">Controllers · Swagger</text>
+
+  <rect class="box-green" x="650" y="110" width="280" height="140" />
+  <text class="label" x="675" y="170">Application Layer</text>
+  <text class="text-small" x="690" y="210">Use cases · DTOs</text>
+  <text class="text-small" x="690" y="240">Validation orchestration</text>
+
+  <rect class="box-green" x="650" y="270" width="280" height="140" />
+  <text class="label" x="705" y="330">Domain Layer</text>
+  <text class="text-small" x="690" y="370">Entidades ricas ·</text>
+  <text class="text-small" x="690" y="400">Regas de negócio</text>
+
+  <rect class="box-green" x="650" y="430" width="280" height="140" />
+  <text class="label" x="700" y="490">Infrastructure</text>
+  <text class="text-small" x="680" y="530">EF Core · Repositórios</text>
+  <text class="text-small" x="685" y="560">Integrações externas</text>
+
+  <rect class="box" x="980" y="240" width="160" height="200" />
+  <text class="label" x="995" y="300">SQL Server</text>
+  <text class="text-small" x="1010" y="340">Banco de dados</text>
+
+  <line class="line" x1="300" y1="310" x2="350" y2="310" />
+  <line class="line" x1="610" y1="220" x2="650" y2="180" />
+  <line class="line" x1="610" y1="300" x2="650" y2="340" />
+  <line class="line" x1="610" y1="380" x2="650" y2="500" />
+  <line class="line" x1="930" y1="180" x2="980" y2="280" />
+  <line class="line" x1="930" y1="340" x2="980" y2="340" />
+  <line class="line" x1="930" y1="500" x2="980" y2="420" />
+</svg>
