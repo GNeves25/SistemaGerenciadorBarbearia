@@ -87,5 +87,9 @@ Os testes usam Jasmine/Karma com `HttpClientTestingModule` para isolar chamadas 
 - Criar migrações e seeds automatizados para dados iniciais.
 - Adicionar pipeline CI/CD com execução de testes e análise estática.
 
+## Documentação Completa
+
+Toda a documentação funcional e técnica está disponível na pasta [`docs/`](docs/). Lá você encontra requisitos detalhados, visão de arquitetura (com diagramas), fluxos de uso e orientações de implantação/operacionalização.
+
 ---
 Feito com ♥️ utilizando Clean Architecture para acelerar a evolução do projeto.
